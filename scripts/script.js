@@ -47,7 +47,8 @@ let hueVals = [39.64, 67.46, 51.3, 1.6, 10.31, 32.8, 42.24];
 
 function setup() {
   colorMode(HSB, 100);
-  let canvasSize = select("body");
+  let canvasSize = select("html");
+  console.log(canvasSize);
   width = canvasSize.width;
   height = canvasSize.height;
   canvas = createCanvas(width, height);
@@ -85,7 +86,7 @@ function setup() {
   bright = random(50, 100);
 
   defaultSpiralX = width / 2 + 200;
-  defaultSpiralY = 300;
+  defaultSpiralY = 200;
 }
 function draw() {
   if (numSpirals <= 0) {
@@ -119,14 +120,17 @@ function mousePressed() {
 }
 
 function mouseReleased() {
-  mouseHeld = false;
-  r = 0;
-  hue = random(hue - 15, hue + 15);
-  sat = random(100);
-  bright = random(50, 100);
-  spiralTightness = random(0.1, 1);
-  shape = random(7, 8);
-  numSpirals++;
+  console.log("mouse released");
+  if (numSpirals > 0) {
+    mouseHeld = false;
+    r = 0;
+    hue = random(hue - 15, hue + 15);
+    sat = random(100);
+    bright = random(50, 100);
+    spiralTightness = random(0.1, 1);
+    shape = random(7, 8);
+    numSpirals++;
+  }
 }
 
 //nice combos of tightness to shape
@@ -140,6 +144,7 @@ function mouseReleased() {
 //0.5277149946751076 3.1059186040423676 - maggie likes this one
 
 function resetSketch() {
+  console.log("reset");
   hue = random(100);
   sat = random(60, 100);
   bright = random(40);
@@ -172,8 +177,6 @@ function drawSpiral(x, y) {
   if (r < defaultR) {
     mouseHeld = true;
   } else {
-    defaultSpiralX = random(200, windowWidth - 300);
-    defaultSpiralY = random(300, windowHeight - 300);
     mouseHeld = false;
     r = 0;
     hue = random(hue - 15, hue + 15);
