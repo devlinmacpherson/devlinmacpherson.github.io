@@ -81,7 +81,7 @@ function setup() {
 
   background(hue, sat, bright);
 
-  hue = hueVals[spiralSelect];
+  hue = hueVals[Math.floor(random(hueVals.length))];
   sat = 100;
   bright = random(50, 100);
 
@@ -163,7 +163,7 @@ function resetSketch() {
 
 function windowResized() {
   console.log("resized");
-  let canvasSize = select("body");
+  let canvasSize = select("html");
   width = canvasSize.width;
   height = canvasSize.height;
   resizeCanvas(width, height, true);

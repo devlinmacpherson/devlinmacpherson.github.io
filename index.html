@@ -53,20 +53,28 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
 
-    <title>Devlin Macpherson - Future Sketches Portfolio</title>
+    <title>Devlin Macpherson Portfolio</title>
 
     <!-- p5.js -->
-    <script src="scripts/p5.js"></script>
+    <!-- <script src="scripts/p5.js"></script> -->
     <!-- <script src="../libraries/p5.sound.js"></script> -->
-    <script src="scripts/script.js"></script>
+    <!-- <script src="scripts/script.js"></script> -->
+    <script>
+      if (window.screen.width > 575.98) {
+        document.write(
+          '<script src="scripts/p5.js"><\/script>' +
+            '<script src="scripts/script.js"><\/script>'
+        );
+      }
+    </script>
   </head>
 
   <body>
     <div id="body">
       <section class="work">
-        <div class="container" style="margin-top: 200px">
+        <div class="container intro">
           <div class="row">
-            <div class="col">
+            <div class="col-sm">
               <h1>Hello, I'm Devlin!</h1>
               <p>
                 I am a Creative Design Technologist and Artist based in Toronto,
@@ -74,8 +82,8 @@
                 world of New Media art and education, and especially interested
                 in generative art, drawing plotters, and interactive
                 installation. I'm very excited to be applying to the Future
-                Sketches group at the MIT Media Lab, and I thank you for
-                learning about me through my work. Enjoy!
+                Sketches group at the MIT Media Lab. Thank you for taking the
+                time to learn about me through my work. Enjoy!
 
                 <br /><br />
 
@@ -84,7 +92,7 @@
               </p>
             </div>
             <!-- <div class="col"></div> -->
-            <div class="col navigation">
+            <div class="col-sm navigation">
               <div class="row">
                 <div class="col">
                   <h6>Jump to:</h6>
@@ -97,7 +105,7 @@
                 </div>
               </div>
               <div class="row margintop-sm info-square">
-                <div class="col">
+                <div class="col-sm">
                   <p>
                     Click and hold anywhere on this page to add some flair!
                     <br /><br />
@@ -136,7 +144,7 @@
           </div>
 
           <div class="row margintop-sm">
-            <div class="col">
+            <div class="col-sm">
               <div class="row">
                 <div class="col">
                   <img class="Imgs" src="assets/images/icfwywm1.jpg" />
@@ -153,7 +161,7 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-sm">
               <p>
                 ICFWYWM is an interactive drawing machine installation. It
                 consists of a two axis drawing plotter driven by an Arduino
@@ -178,7 +186,7 @@
           </div>
 
           <div class="row margintop-sm">
-            <div class="col">
+            <div class="col-sm">
               <p>
                 This piece has existed in two forms. It was originally created
                 for my undergraduate showcase, a virtual exhibition. This
@@ -200,7 +208,7 @@
 
             <div class="col">
               <div class="row">
-                <div class="col">
+                <div class="col-sm">
                   <img class="Imgs" src="assets/images/icfwywm3.jpg" />
                 </div>
               </div>
@@ -226,7 +234,7 @@
             </div>
 
             <div class="row margintop-sm">
-              <div class="col work-video">
+              <div class="col-sm work-video">
                 <iframe
                   src="https://www.youtube.com/embed/Z2o9WQWpmp4?si=jHyOLEXr4SecHebM"
                   frameborder="0"
@@ -235,7 +243,7 @@
             </div>
 
             <div class="row margintop-sm">
-              <div class="col">
+              <div class="col-sm">
                 <p>
                   As part of my work at Devicist Design Works, We designed and
                   built a 40-foot kinetic permanent installation for Shopify's
@@ -246,7 +254,7 @@
                 </p>
               </div>
 
-              <div class="col">
+              <div class="col-sm">
                 <video width="100%" autoplay muted loop controls>
                   <source src="assets/images/flux video.mp4" type="video/mp4" />
                 </video>
@@ -254,7 +262,7 @@
             </div>
 
             <div class="row margintop-sm">
-              <div class="col">
+              <div class="col-sm">
                 <div class="row">
                   <div class="col">
                     <img class="Imgs" src="assets/images/ceilingsim.gif" />
@@ -265,17 +273,17 @@
                 </div>
 
                 <div class="row margintop-sm">
-                  <div class="col">
+                  <div class="col-sm">
                     <img class="Imgs" src="assets/images/flux2.jpg" />
                   </div>
                 </div>
               </div>
 
-              <div class="col">
+              <div class="col-sm margintop-sm">
                 <p>
-                  This was a massive learning experience in what goes into
+                  This was a valuable learning experience in what goes into
                   making a permanent installation, as well as large-scale,
-                  precise, a co-ordinated movement of 40 stepper motors. Each
+                  precise, and co-ordinated movement of 40 stepper motors. Each
                   pair of motors is driven by an arduino, and a Raspberry Pi is
                   the brain of the operation. <br /><br />
                   Working with a larger company, and being beholden to their
@@ -290,9 +298,9 @@
           </div>
         </div>
 
-        <div class="container margintop-lg" id="light-clock">
+        <div class="container" id="light-clock">
           <div class="row">
-            <div class="col">
+            <div class="col-sm margintop-lg">
               <div class="portfolio-details">
                 <h3>Light Clock</h3>
               </div>
@@ -322,7 +330,7 @@
               </div>
             </div>
 
-            <div class="col" id="contours">
+            <div class="col-sm margintop-lg" id="contours">
               <div class="portfolio-details">
                 <h3>Contours</h3>
               </div>
@@ -360,7 +368,7 @@
         <div class="container margintop-lg" id="brain">
           <div class="work">
             <div class="row">
-              <div class="col">
+              <div class="col-sm">
                 <div class="portfolio-details">
                   <h3>Illuminated Brain</h3>
                 </div>
@@ -368,7 +376,7 @@
             </div>
 
             <div class="row margintop-sm">
-              <div class="col work-video">
+              <div class="col-sm work-video">
                 <iframe
                   src="https://www.youtube.com/embed/NIznK_WQr6A?si=SCq5PRMwun1hZ8Xl"
                   frameborder="0"
@@ -377,7 +385,7 @@
             </div>
 
             <div class="row margintop-sm">
-              <div class="col">
+              <div class="col-sm">
                 <p>
                   While working at Devicist, I designed the structure, light
                   patterns, and interaction of a hub of LED matrix panels inside
@@ -390,7 +398,7 @@
                 </p>
               </div>
 
-              <div class="col">
+              <div class="col-sm">
                 <div class="row margintop-sm">
                   <div class="col">
                     <img class="Imgs" src="assets/images/brain1.jpg" />
@@ -407,14 +415,14 @@
         <div class="container margintop-lg" id="plotter">
           <div class="work">
             <div class="row">
-              <div class="col">
+              <div class="col-sm">
                 <div class="portfolio-details">
                   <h3>Pen Plotter Study</h3>
                 </div>
               </div>
             </div>
             <div class="row margintop-sm">
-              <div class="col">
+              <div class="col-sm">
                 <p>
                   During my undergraduate thesis project, I was figuring out how
                   to best utilize the pen plotter I had built. I grew to love
@@ -423,18 +431,18 @@
                   exploration.
                 </p>
               </div>
-              <div class="col">
+              <div class="col-sm">
                 <img class="Imgs" src="assets/images/drawing.gif" />
               </div>
             </div>
-            <div class="row margintop-sm">
-              <div class="col">
+            <div class="row">
+              <div class="col-sm margintop-sm">
                 <img class="Imgs" src="assets/images/plot1.png" />
               </div>
-              <div class="col">
+              <div class="col-sm margintop-sm">
                 <img class="Imgs" src="assets/images/plot2.png" />
               </div>
-              <div class="col">
+              <div class="col-sm margintop-sm">
                 <img class="Imgs" src="assets/images/plot3.png" />
               </div>
             </div>

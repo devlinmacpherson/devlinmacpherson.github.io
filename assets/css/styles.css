@@ -145,51 +145,8 @@ button {
   padding-left: 10px;
 }
 
-/*/////////////////////////////////////////
-Hero
-////////////////////////////////////////*/
-
-#hero h1 {
-  font-family: "Source Code Pro", monospace;
-  font-style: bold;
-  font-size: 60px;
-  line-height: 1.6;
-  color: #ffffff;
-}
-
-.hero-container {
-  position: relative;
-  transition: all 0.2s ease-in-out;
-}
-
-.hero-details {
-  position: absolute;
-  color: #000000;
-  top: 30px;
-  left: 30px;
-  max-width: 600px;
-}
-
-.hero-details h3 {
-  font-family: "Source Code Pro", monospace;
-  font-size: 36px;
-  color: #000000;
-}
-
-.hero-details p {
-  font-size: 20px;
-}
-
-.hero-button {
-  background-color: #ffffff;
-  position: absolute;
-  padding: 15px 30px;
-  bottom: 30px;
-  left: 30px;
-}
-
-.mobile-only {
-  display: none;
+.intro {
+  margin-top: 200px;
 }
 
 /*/////////////////////////////////////////
@@ -386,6 +343,19 @@ Media queries
   .mobile-only {
     display: inline-block;
     color: #ffffff;
+  }
+
+  .intro {
+    margin-top: 25px;
+  }
+
+  body {
+    background-color: rgb(8, 8, 131);
+  }
+
+  .info-square {
+    display: none;
+    height: 0;
   }
 }
 
