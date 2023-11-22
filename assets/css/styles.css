@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-color: #000000;
+  background-color: rgb(8, 8, 131);
   font-family: "Source Code Pro", monospace;
   font-weight: 300 !important;
 }
@@ -49,18 +49,12 @@ video {
 
 a:hover {
   color: #ffffff;
-  opacity: 0.8;
   text-decoration: none;
   text-decoration: underline;
 }
 
-ul {
-  list-style-type: none;
-}
-
 .info-square {
   border: 2px dashed white;
-
   border-radius: 10px;
   margin: 40% 0px 0px 40%;
   padding: 20px;
@@ -70,66 +64,12 @@ ul {
   margin-bottom: 0;
 }
 
-.primary-btn {
-  font-family: "Source Code Pro", monospace;
-  background-color: #ffffff;
-  color: #000000 !important;
-  padding: 15px 40px;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.primary-btn:hover {
-  background-color: #ffffff;
-  color: #000000;
-  opacity: 0.9;
-}
-
-section {
-  padding: 0 0;
-}
-
 button {
   background-color: transparent;
-  border: 0px;
-}
-
-.template-button {
-  position: fixed;
-  padding: 10px 30px;
-  border-radius: 5px;
-  background-color: #2d8eff;
-  color: #ffffff;
-  z-index: 9999;
-  bottom: 15px;
-  left: 15px;
-  display: inline-block;
 }
 
 .navigation {
   text-align: right;
-}
-
-.header-logo {
-  max-width: 180px;
-  min-width: 180px;
-}
-
-.heading-content {
-  margin: 0 auto;
-  font-family: "Source Code Pro", monospace;
-  color: #ffffff;
-}
-
-.heading-content h2 {
-  line-height: 1.8;
-  letter-spacing: 0.02em;
-}
-
-.heading-content p {
-  font-family: "Source Code Pro", monospace;
-  font-size: 20px;
-  color: rgb(240, 240, 240);
 }
 
 .margintop-sm {
@@ -138,11 +78,6 @@ button {
 
 .margintop-lg {
   margin-top: 60px;
-}
-
-.col-md-6 {
-  padding-right: 10px;
-  padding-left: 10px;
 }
 
 .intro {
@@ -168,29 +103,6 @@ Portfolio
   margin-top: 5px;
 }
 
-.portfolio-button {
-  background-color: #ffffff;
-  position: absolute;
-  padding: 15px 30px;
-  bottom: 20px;
-  left: 20px;
-}
-
-.portfolio-link {
-  color: #000000;
-}
-
-.portfolio-link:hover {
-  color: #000000;
-  opacity: 0.8;
-}
-
-.portfolio-link i {
-  font-size: 20px;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
 .work img {
   width: 100%;
   border-radius: 5px;
@@ -202,81 +114,15 @@ Portfolio
   -ms-transition: all 0.1s ease-in;
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
-  opacity: 1;
   transform: scale(1.01);
   -ms-transform: scale(1.01); /* IE 9 */
   -webkit-transform: scale(1.01); /* Safari and Chrome */
 }
-.work-video {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 56%;
-}
 
 .work-video iframe {
-  position: absolute;
-
+  aspect-ratio: 16 / 9;
+  width: 100%;
   border-radius: 5px;
-
-  width: 96%;
-  height: 100%;
-}
-
-/*/////////////////////////////////////////
-Blog
-////////////////////////////////////////*/
-
-.blog-post {
-  position: relative;
-  padding: 40px;
-  margin: 10px 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: #ffffff;
-}
-
-.blog-post h4 {
-  font-family: "Source Code Pro", monospace;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-
-.blog-post p {
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.8;
-  margin-bottom: 40px;
-}
-
-.blog-post i {
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-.blog-link {
-  position: absolute;
-  bottom: 30px;
-}
-
-.label-tag {
-  background-color: #ffffff;
-  padding: 4px 15px;
-  display: inline-block;
-  margin-bottom: 25px;
-}
-
-.label-tag span {
-  color: #000000;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-}
-
-.label-tag a {
-  color: #ffffff;
-}
-
-.row-flex {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 /*/////////////////////////////////////////
@@ -284,8 +130,6 @@ Footer
 ////////////////////////////////////////*/
 
 #footer {
-  color: #ffffff;
-  font-family: "Source Code Pro", monospace;
   text-align: center;
   padding: 90px 0 30px 0;
 }
@@ -294,18 +138,8 @@ Footer
   font-size: 24px;
 }
 
-#footer small {
-  color: rgba(255, 255, 255, 0.5);
-  font-family: "Source Code Pro", monospace;
-  font-weight: 300;
-  letter-spacing: 0.25em;
-  margin-top: 30px;
-  display: inline-block;
-}
-
 #footer i {
   font-size: 26px;
-  color: #ffffff;
 }
 
 .list-inline-item {

@@ -55,16 +55,24 @@
 
     <title>Devlin Macpherson Portfolio</title>
 
-    <!-- p5.js -->
-    <!-- <script src="scripts/p5.js"></script> -->
-    <!-- <script src="../libraries/p5.sound.js"></script> -->
-    <!-- <script src="scripts/script.js"></script> -->
+    <!--Only load p5 sketch if on Desktop-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       if (window.screen.width > 575.98) {
-        document.write(
-          '<script src="scripts/p5.js"><\/script>' +
-            '<script src="scripts/script.js"><\/script>'
-        );
+        loadScriptFile("scripts/p5.js");
+        loadScriptFile("scripts/script.js");
+      }
+
+      // loadScriptFile func
+      function loadScriptFile(src) {
+        // create element <script>
+        const $script = $("<script>");
+        // add type attribute
+        $script.attr("type", "text/javascript");
+        // add src attribute
+        $script.attr("src", src);
+        // append the <script> element to <head>
+        $script.appendTo("head");
       }
     </script>
   </head>

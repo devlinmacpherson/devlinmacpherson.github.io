@@ -1,38 +1,45 @@
 let canvas;
 let button;
 
+//radius
 let r = 0;
+
+//Spiral shape variables
 let theta = 0;
+let shape = 0;
+let spiralTightness;
 
 let originX = 0;
 let originY = 0;
 
-let px;
-let py;
-
-let maxRadius = 20;
-let spiralTightness;
-let shape;
+//previous x,y
+let px = 0;
+let py = 0;
 
 let hue;
 let sat;
 let bright;
 
+//background color
 let backHue;
 let backSat;
 let backBright;
 
+//boolean to handle mouse interaction. Helpful if I want to trigger interaction even when mouse isn't held
 let mouseHeld = false;
 
 let width;
 let height;
 
+//number of spirals drawn
 let numSpirals = 0;
 
+//default variables for the first spiral that's automatically drawn
 let defaultR = 100;
 let defaultSpiralX;
 let defaultSpiralY;
 
+//Arrays of good looking spirals for initial load. If sketch is reset, then sprial and color values are random
 let tightVals = [
   0.38175749089477296, 0.24719396512365946, 0.7881740929340183,
   0.4822905762702234, 0.6863264099825124, 0.9806672252079057,
@@ -47,13 +54,16 @@ let hueVals = [39.64, 67.46, 51.3, 1.6, 10.31, 32.8, 42.24];
 
 function setup() {
   colorMode(HSB, 100);
+
+  //gets the size of whole webpage, not just window width + height
   let canvasSize = select("html");
-  console.log(canvasSize);
   width = canvasSize.width;
   height = canvasSize.height;
   canvas = createCanvas(width, height);
 
   canvas.position(0, 0);
+
+  //puts p5 canvas behind html
   canvas.style("z-index", "-1");
 
   button = createButton("reset sketch");
@@ -65,22 +75,19 @@ function setup() {
   button.mousePressed(resetSketch);
 
   strokeWeight(1);
+
+  //picks from array of default spiral values
   let spiralSelect = Math.floor(random(tightVals.length));
   spiralTightness = tightVals[spiralSelect];
   shape = shapeVals[spiralSelect];
 
-  console.log(spiralTightness, shape);
+  //default background color is blue
+  backHue = 65;
+  backSat = 100;
+  backBright = 50;
+  background(backHue, backSat, backBright);
 
-  hue = 65;
-  sat = 100;
-  bright = 50;
-
-  backHue = hue;
-  backSat = sat;
-  backBright = bright;
-
-  background(hue, sat, bright);
-
+  //default spiral selected from default color array
   hue = hueVals[Math.floor(random(hueVals.length))];
   sat = 100;
   bright = random(50, 100);
@@ -89,15 +96,18 @@ function setup() {
   defaultSpiralY = 200;
 }
 function draw() {
+  //if pages gets reloaded or reset, automatically draw first spiral
   if (numSpirals <= 0) {
     drawSpiral(defaultSpiralX, defaultSpiralY);
   }
 
   stroke(hue, sat, bright);
+
+  //calculates next point along the spiral
   let x = r * cos(theta);
   let y = r * sin(theta);
 
-  //Draw an ellipse at x,y
+  //as long as mouse is being held, draw a line between previous x,y and current x,y
   if (mouseHeld == true) {
     push();
     translate(originX, originY);
@@ -112,55 +122,69 @@ function draw() {
 }
 
 function mousePressed() {
-  console.log(spiralTightness, shape, hue);
-
   mouseHeld = true;
   originX = mouseX;
   originY = mouseY;
 }
 
 function mouseReleased() {
-  console.log("mouse released");
+  //this if statement ignores the mouse click when the reset button is pressed
   if (numSpirals > 0) {
+    //when mouse is released, generate new values for everything
     mouseHeld = false;
     r = 0;
-    hue = random(hue - 15, hue + 15);
+    //hues are selected within a similar range of the previous color
+    hue = random(hue - 30, hue + 30);
     sat = random(100);
     bright = random(50, 100);
     spiralTightness = random(0.1, 1);
     shape = random(7, 8);
     numSpirals++;
+    console.log("Spiral #:", numSpirals);
+    console.log(
+      "Sprial Tightness:",
+      spiralTightness,
+      "\n",
+      "Spiral Shape:",
+      shape,
+      "\n",
+      "hue:",
+      hue,
+      "\n",
+      "saturation:",
+      sat,
+      "\n",
+      "brightness:",
+      bright
+    );
   }
 }
 
-//nice combos of tightness to shape
-//0.33764569395874255 2.516029299399098 - star
-//0.5490781462173264 4.688562376219423 - spiral in square
-//0.20897266816521812 0.6816677792500992 - nonagon
-//0.4049022672106023 1.8002588907287311 - 7 point star with spiral
-//0.48068693299143384 7.522018544583969 - pentagon
-//0.46393699784942266 4.707785726300671 - squre with 4 pointed spiral
-//0.3308973226880011 2.3589877828958454 - 8 pointed star
-//0.5277149946751076 3.1059186040423676 - maggie likes this one
-
 function resetSketch() {
   console.log("reset");
+
+  //randomly select a new color
   hue = random(100);
   sat = random(60, 100);
   bright = random(40);
 
-  backHue = hue;
-  backSat = sat;
-  backBright = bright;
-
   background(hue, sat, bright);
 
-  sat = random(50);
+  //first spiral color will be complimentary, but brighter
+  hue = random(hue - 30, hue + 30);
+  sat = random(50, 100);
   bright = random(50, 100);
   r = 0;
   numSpirals = 0;
+
+  console.log("Sprial Tightness:", spiralTightness);
+  console.log("Spiral Shape:", shape);
+  console.log("hue:", hue);
+  console.log("saturation:", sat);
+  console.log("brightness:", bright);
 }
 
+//resizes p5 canvas when browser window is res
 function windowResized() {
   console.log("resized");
   let canvasSize = select("html");
@@ -171,9 +195,12 @@ function windowResized() {
   button.position(windowWidth - 160, 10);
 }
 
+//function to draw spiral when mouse is not clicked. this is used on page loading to generate the first spiral
 function drawSpiral(x, y) {
   originX = x + numSpirals * (4 * defaultR);
   originY = y;
+
+  //once the spiral reaches a certain radius, it is finished
   if (r < defaultR) {
     mouseHeld = true;
   } else {
@@ -185,5 +212,23 @@ function drawSpiral(x, y) {
     spiralTightness = random(0.1, 1);
     shape = random(7, 8);
     numSpirals++;
+
+    console.log("Spiral #:", numSpirals);
+    console.log(
+      "Sprial Tightness:",
+      spiralTightness,
+      "\n",
+      "Spiral Shape:",
+      shape,
+      "\n",
+      "hue:",
+      hue,
+      "\n",
+      "saturation:",
+      sat,
+      "\n",
+      "brightness:",
+      bright
+    );
   }
 }
