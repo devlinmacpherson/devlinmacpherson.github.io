@@ -161,6 +161,10 @@ function resetSketch() {
   sat = Math.random() * 40 + 60;
   bright = Math.random() * 40;
 
+  backHue = hue;
+  backSat = sat;
+  backBright = bright;
+
   background(hue, sat, bright);
 
   //first spiral color will be complimentary, but brighter
