@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Vibe Coder's Guide</title>
+    <style>
+        /* Recreating banned 90s HTML tags using modern CSS */
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        
+        .spin {
+            display: inline-block;
+            animation: spin 3s linear infinite;
+            font-size: 32px;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .word-art {
+            font-size: 40px;
+            font-weight: bold;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body bgcolor="#00FFFF" text="#000080" link="#FF0000" vlink="#800080" alink="#00FF00" >
+
+    <center>
+        <div class="spin">💿</div>
+        <span class="word-art">Jacob's Vibe Coding Guide</span>
+        <div class="spin">💿</div>
+        
+        <br><br>
+        
+        <marquee width="60%" behavior="alternate" bgcolor="#FFFF00">
+            <b><font size="+2" color="#FF0000">~~~ WELCOME TO THE CYBER ZONE ~~~</font></b>
+        </marquee>
+        
+        <p><i><span class="blink" style="color: red; font-weight: bold;">NEW!!!</span> A step-by-step guide to setting up your local development environment, saving your progress, and hosting your site online.</i></p>
+    </center>
+
+    <hr size="5" color="#FF00FF" width="100%">
+
+    <h2>1. Setting Up Your Local Environment: VS Code</h2>
+    <p>Visual Studio Code (VS Code) is your IDE (Integrated Development Environment). It is where you will write your code, manage your project files, and preview your website.</p>
+    
+    <h3>Step-by-Step Setup:</h3>
+    <ol>
+        <li><b>Download & Install:</b> Grab it from <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</li>
+        <li><b>Open a Folder:</b> Create a new folder on your computer called <code>lilydipper-website</code> (or whatever) and drag it into the VS Code window. This is your project workspace.</li>
+        <li><b>Install Live Server:</b> Click the <b>Extensions</b> icon on the far left (it looks like four squares). Search for <b>Live Server</b> (by Ritwick Dey) and click Install.</li>
+    </ol>
+
+    <hr size="3" color="#0000FF" width="80%" align="left" style="border-style: dashed;">
+
+    <h2>2. Saving Your State: GitHub Desktop</h2>
+    <p>If you've ever had files named <i>Final_Mix_v2_ActuallyFinal.wav</i>, you know file management can get messy. <b>GitHub Desktop</b> tracks every single change you make and backs it up to the cloud.</p>
+    
+    <h3>Step-by-Step Setup:</h3>
+    <ol>
+        <li><b>Create an Account:</b> Go to <a href="https://github.com/" target="_blank">GitHub.com</a> and make a free account. Make sure you pick a username you like!</li>
+        <li><b>Get the App:</b> Download and install <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a>. Sign in.</li>
+        <li><b>Create a Repository:</b> In GitHub Desktop, go to <b>File > New Repository</b>. <i><span class="blink" style="color:red">CRUCIAL STEP:</span></i> You must name the repository exactly <code>yourusername.github.io</code> (replace "yourusername" with your actual GitHub username). Set the local path to your project folder, and click Create.</li>
+        <li><b>Publish:</b> Click the blue <b>Publish repository</b> button. <i>Important:</i> Uncheck "Keep this code private" (it needs to be public for free hosting).</li>
+    </ol>
+
+    <hr size="3" color="#0000FF" width="80%" align="left" style="border-style: dashed;">
+
+    <h2>3. Going Live: GitHub Pages</h2>
+    <p>The best part about GitHub is that they will host your static files (HTML/CSS) for free using a feature called GitHub Pages.</p>
+    
+    <ol>
+        <li>Go to GitHub.com and navigate to your new repository.</li>
+        <li>Click the <b>Settings</b> tab (the gear icon near the top right).</li>
+        <li>On the left sidebar, click on <b>Pages</b>.</li>
+        <li>Under "Build and deployment", look for <b>Source</b>. Make sure "Deploy from a branch" is selected.</li>
+        <li>Under the <b>Branch</b> dropdown, select <code>main</code> (or <code>master</code>) and leave the folder as <code>/ (root)</code>. Click <b>Save</b>.</li>
+    </ol>
+    <p>That is it! GitHub will provide you with a live URL, which will be exactly what you named your repository: <code>https://yourusername.github.io</code>. Every time you "Push" changes from GitHub Desktop, your live website will automatically update.</p>
+
+    <hr size="3" color="#0000FF" width="80%" align="left" style="border-style: dashed;">
+
+    <h2>4. Your First Track: Starter HTML</h2>
+    <p>Create a file named <code>index.html</code> in your VS Code folder. Click the button below to copy the code, paste it into that file, and save it. Then, right-click and hit <b>Open with Live Server</b> to see your band site in action.</p>
+    
+    <table border="5" bordercolor="#FF0000" cellpadding="15" bgcolor="#C0C0C0" width="100%">
+        <tr>
+            <td>
+                <button id="copyBtn" onclick="copyCode()" style="margin-bottom: 10px; font-weight: bold; font-family: 'Comic Sans MS';">COPY CODE 2 CLIPBOARD</button>
+<pre><code id="starter-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Band Name&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    &lt;center&gt;
+        &lt;h1&gt;Band Name Here&lt;/h1&gt;
+        &lt;p&gt;&lt;i&gt;New single out now!&lt;/i&gt;&lt;/p&gt;
+    &lt;/center&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2&gt;Upcoming Shows&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Oct 31 - The Echo Lounge&lt;/li&gt;
+        &lt;li&gt;Nov 12 - Downtown Arena&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+
+
+    <script>
+        function copyCode() {
+            var codeText = document.getElementById('starter-code').innerText;
+            navigator.clipboard.writeText(codeText).then(function() {
+                var btn = document.getElementById('copyBtn');
+                btn.innerText = 'COPIED!!!';
+                setTimeout(function() {
+                    btn.innerText = 'COPY CODE 2 CLIPBOARD';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
